@@ -31,10 +31,14 @@ git clone https://github.com/eemb3d/TBD.git .
 npm run cpenv
 
 # Install dependencies
-npm run installall
+npm install
 
-# Start the Microservices
-npm run start
+# Seed the DB
+# check if db up 'systemctl status mongod'
+npm run seed:db
+
+# To start
+npm start
 
 # In another directory
 npm run test
