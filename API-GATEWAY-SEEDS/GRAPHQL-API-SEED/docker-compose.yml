@@ -1,0 +1,56 @@
+version: "3"
+services:
+  api-gateway:
+    container_name: api-gateway
+    restart: unless-stopped
+    build:
+      context: "."
+      dockerfile: "./api-gateway/Dockerfile"
+    depends_on:
+      - service-one
+      - service-two
+    environment:
+      - SERVICE_ONE_URI=http://service-one:8081
+      - SERVICE_TWO_URI=http://service-two:8082
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  service-one:
+    container_name: service-one
+    restart: unless-stopped
+    build:
+      context: "."
+      dockerfile: "./service-one/Dockerfile"
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    links:
+      - db
+
+  service-two:
+    container_name: service-two
+    restart: unless-stopped
+    build:
+      context: "."
+      dockerfile: "./service-two/Dockerfile"
+    ports:
+      - "8082:8082"
+    networks:
+      - app-network
+    links:
+      - db
+
+  db:
+    container_name: mongo
+    image: mongo-express
+    ports:
+      - "27017:27017"
+    # volumes:
+    #   - ./data:/data/db
+
+networks:
+  app-network:
+    driver: bridge
