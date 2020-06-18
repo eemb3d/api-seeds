@@ -26,7 +26,7 @@ Retrieve data about SOME_ENDPOINTS_COLLECTIONS.
 
 ```sh
 # Download the project
-git clone https://github.com/eemb3d/TBD.git .
+git clone https://github.com/eemb3d/api-seeds.git api-seeds && cd api-seeds/API-GATEWAY-SEEDS/REST-API-SEED
 
 # Modify .env
 npm run cpenv
