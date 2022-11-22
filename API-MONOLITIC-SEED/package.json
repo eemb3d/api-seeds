@@ -60,7 +60,7 @@
     "mongoose": "^5.9.14",
     "morgan": "^1.10.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "homepage": "https://github.com/eemb3d/api-seeds#readme"
